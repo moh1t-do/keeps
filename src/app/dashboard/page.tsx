@@ -5,9 +5,11 @@ import { useEffect, useState } from "react";
 import { auth } from '@/firebase/firebase';
 import WishList from '@/components/WishList';
 import PostForm from '@/components/PostForm';
+import { useRouter } from 'next/navigation'
 
 function Dashboard(): React.ReactNode {
     const [authUser, setAuthUser] = useState<User | null>(null);
+    const router = useRouter();
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user: User | null) => {
@@ -15,6 +17,7 @@ function Dashboard(): React.ReactNode {
                 setAuthUser(user);
             } else {
                 setAuthUser(null);
+                router.push('/dashboard/login')
             }
         });
         return () => {

@@ -1,7 +1,9 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { UserCredential, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '@/firebase/firebase';
 
 const Login = () => {
     const router = useRouter();
@@ -27,18 +29,19 @@ const Login = () => {
             return;
         }
 
-        // const res = await signIn("credentials", {
-        //   redirect: false,
-        //   email,
-        //   password,
-        // });
 
-        // if (res?.error) {
-        //     setError("Invalid email or password");
-        //     if (res?.url) router.replace("/dashboard");
-        // } else {
-        //     setError("");
-        // }
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential: UserCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                router.push('/dashboard');
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            });
+
     };
 
     return (
