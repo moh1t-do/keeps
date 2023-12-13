@@ -53,7 +53,7 @@ const Register = () => {
 
   return (
     <div className="flex flex-col items-center justify-between">
-      <div className="w-96 rounded bg-[#212121] p-8 shadow-md">
+      <div className="sm:max-w-sm md:max-w-md max-w-xs rounded bg-[#212121] p-8 shadow-md">
         <h1 className="mb-8 text-center text-4xl font-semibold">Register</h1>
         <form onSubmit={handleRegister}>
           <input

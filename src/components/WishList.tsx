@@ -8,6 +8,14 @@ function WishList(): React.ReactNode {
       <WishListCard />
       <WishListCard />
       <WishListCard />
+      <WishListCard />
+      <WishListCard />
+      <WishListCard />
+      <WishListCard />
+      <WishListCard />
+      <WishListCard />
+      <WishListCard />
+      <WishListCard />
     </div>
   );
 }
