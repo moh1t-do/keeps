@@ -33,8 +33,8 @@ function Navbar(): React.ReactNode {
 
   const handleSignOut = (): void => {
     signOut(auth)
-      .then(() => {})
-      .catch((error) => {});
+      .then(() => { })
+      .catch((error) => { });
   };
 
   return (
@@ -49,8 +49,8 @@ function Navbar(): React.ReactNode {
         <div className="hidden items-center gap-10 sm:flex">
           <ul className="flex cursor-pointer items-center gap-10">
             {navItems.map((ele: navItem, idx: number) => (
-              <li>
-                <Link key={idx} href={ele.navLink}>
+              <li key={idx}>
+                <Link href={ele.navLink}>
                   {ele.title}
                 </Link>
               </li>
@@ -73,9 +73,12 @@ function Navbar(): React.ReactNode {
             <div className="mx-auto max-w-6xl px-8">
               <ul className="flex cursor-pointer flex-col gap-10 py-4">
                 {navItems.map((ele: navItem, idx: number) => (
-                  <Link key={idx} className="mx-auto py-2" href={ele.navLink}>
-                    {ele.title}
-                  </Link>
+                  <li key={idx}>
+                    <Link className="mx-auto py-2" href={ele.navLink}>
+                      {ele.title}
+                    </Link>
+                  </li>
+
                 ))}
                 {authUser && (
                   <li>
