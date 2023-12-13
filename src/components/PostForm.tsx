@@ -5,7 +5,7 @@ import { useState } from "react";
 
 function PostForm() {
   const [title, setTitle] = useState<string>('');
-  const [theme, setTheme] = useState<number>();
+  const [theme, setTheme] = useState<number>(1);
   const dispatch = useDispatch();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -17,6 +17,8 @@ function PostForm() {
       title: title,
       theme: theme,
     })))
+    setTitle('');
+    setTheme(1);
   }
   return (
     <div className="w-full max-w-xs rounded-lg bg-[#212121] p-8 shadow-md sm:max-w-sm md:max-w-md">
