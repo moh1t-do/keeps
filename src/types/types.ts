@@ -6,5 +6,5 @@ export type navItem = {
 export type wishItem = {
   id: number;
   title: number;
-  accent: number;
+  theme: number;
 };
