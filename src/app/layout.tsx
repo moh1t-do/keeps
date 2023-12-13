@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import ContextProvider from "@/lib/ContextProvider";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,11 +21,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="mx-auto flex gap-4 h-screen w-full max-w-6xl flex-col justify-between px-8">
-          <Navbar />
-          {children}
-          <Footer />
-        </div>
+        <ContextProvider>
+          <div className="mx-auto flex h-screen w-full max-w-6xl flex-col justify-between px-8">
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
+        </ContextProvider>
       </body>
     </html>
   );

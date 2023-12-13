@@ -1,9 +1,27 @@
+import { useDispatch } from "react-redux";
+import { addToList } from '@/redux/wishSlice';
 import ButtonGroup from "./ButtonGroup";
+import { title } from "process";
+import { useState } from "react";
 
 function PostForm() {
+  const [title, setTitle] = useState<string>('');
+  const [theme, setTheme] = useState<number>();
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    let _id: number = Math.random();
+    console.log('id', _id, 'title', title, 'theme', theme)
+    dispatch((addToList({
+      id: _id,
+      title: title,
+      theme: theme,
+    })))
+  }
   return (
     <div className="w-full max-w-xs rounded-lg bg-[#212121] p-8 shadow-md sm:max-w-sm md:max-w-md">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="mb-2">
           <label className="block text-sm font-bold text-white ">Title :</label>
         </div>
@@ -12,8 +30,9 @@ function PostForm() {
           placeholder="What's on your mind?"
           className="mb-6 w-full rounded px-4 py-2
   text-black focus:outline-none sm:text-sm sm:leading-5"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)}
         ></input>
-        <ButtonGroup />
+        <ButtonGroup setTheme={setTheme} />
         <div className="flex items-center justify-between">
           <button
             type="submit"
