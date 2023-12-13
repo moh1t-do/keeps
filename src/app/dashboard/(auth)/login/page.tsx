@@ -44,7 +44,7 @@ const Login = () => {
 
   return (
     <div className="flex flex-col items-center justify-between">
-      <div className="w-96 rounded bg-[#212121] p-8 shadow-md">
+      <div className="sm:max-w-sm md:max-w-md max-w-xs rounded bg-[#212121] p-8 shadow-md">
         <h1 className="mb-8 text-center text-4xl font-semibold">Login</h1>
         <form onSubmit={handleSubmit}>
           <input
@@ -68,14 +68,14 @@ const Login = () => {
           </button>
           <p className="mb-4 text-[16px] text-red-600">{error && error}</p>
         </form>
-        <button
+        {/* <button
           className="w-full rounded bg-black py-2 text-white hover:bg-gray-800"
           onClick={() => {
             // signIn("github");
           }}
         >
           Sign In with Github
-        </button>
+        </button> */}
         <div className="mt-4 text-center text-gray-500">- OR -</div>
         <Link
           className="mt-2 block text-center text-blue-500 hover:underline"
