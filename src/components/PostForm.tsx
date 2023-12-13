@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import { addToList } from '@/redux/wishSlice';
 import ButtonGroup from "./ButtonGroup";
-import { title } from "process";
 import { useState } from "react";
 
 function PostForm() {

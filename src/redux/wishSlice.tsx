@@ -18,12 +18,9 @@ export const wishSlice = createSlice({
 
         },
         removeFromList: (state, action) => {
-            const item = state.wishData.find(
-                (item: wishItem) => item.id === action.payload.id
-            )
 
             state.wishData = state.wishData.filter((item) => {
-                return item.id != action.payload.id
+                return item.id != action.payload;
             })
         },
     },

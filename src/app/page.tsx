@@ -1,6 +1,9 @@
+'use client'
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   return (
     <div className="flex items-center justify-center sm:justify-between">
       <div className="flex flex-col items-center sm:block">
@@ -9,7 +12,9 @@ export default function Home() {
           Update.
         </h1>
         <h1 className="my-2 text-center text-7xl sm:text-left">Share.</h1>
-        <button className="mt-4 rounded bg-blue-500 px-5 py-4" type="button">
+        <button className="mt-4 rounded bg-blue-500 px-5 py-4" type="button" onClick={() => {
+          router.push('/dashboard');
+        }}>
           Create Now
         </button>
       </div>
