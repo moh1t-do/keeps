@@ -7,8 +7,7 @@ function WishListCard(props: any): React.ReactNode {
   const selectedTheme = props.theme;
   const dispatch = useDispatch();
 
-  const handleDelete = () => {
-    console.log(props.id)
+  const handleDelete = (): void => {
     dispatch((removeFromList(props.id)));
   }
 

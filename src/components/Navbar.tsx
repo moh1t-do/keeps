@@ -70,11 +70,11 @@ function Navbar(): React.ReactNode {
         {/* mobile  */}
         {isOpen && (
           <div className="top fixed left-0 h-full w-screen bg-black py-4 sm:hidden">
-            <div className="mx-auto max-w-6xl px-8">
+            <div className="mx-auto w-full px-8">
               <ul className="flex cursor-pointer flex-col gap-10 py-4">
                 {navItems.map((ele: navItem, idx: number) => (
-                  <li key={idx}>
-                    <Link className="mx-auto py-2" href={ele.navLink} onClick={(): void => setIsOpen(false)}>
+                  <li className="w-full border-b py-2" key={idx} onClick={():void => setIsOpen(false)}>
+                    <Link href={ele.navLink}>
                       {ele.title}
                     </Link>
                   </li>
