@@ -38,7 +38,7 @@ function Navbar(): React.ReactNode {
   };
 
   return (
-    <div className="flex h-20 w-full items-center justify-between border-b uppercase py-8">
+    <div className="flex h-20 w-full items-center justify-between border-b border-blue-500 uppercase py-8">
       <Link href="/" className="cursor-pointer outline-none">
         WISHES
       </Link>
@@ -73,7 +73,7 @@ function Navbar(): React.ReactNode {
             <div className="mx-auto w-full px-8">
               <ul className="flex cursor-pointer flex-col gap-5 py-4">
                 {navItems.map((ele: navItem, idx: number) => (
-                  <li className="w-full border-b pt-2 pb-1" key={idx} onClick={(): void => setIsOpen(false)}>
+                  <li className="w-full border-b border-blue-500 pt-2 pb-1" key={idx} onClick={(): void => setIsOpen(false)}>
                     <Link href={ele.navLink}>
                       {ele.title}
                     </Link>

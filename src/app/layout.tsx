@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ContextProvider>
-          <div className="mx-auto flex h-screen w-full max-w-6xl flex-col justify-between px-8">
+          <div className="mx-auto flex h-screen w-full gap-4 max-w-6xl flex-col justify-between px-8">
             <Navbar />
             {children}
             <Footer />

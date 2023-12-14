@@ -25,7 +25,7 @@ function Dashboard(): React.ReactNode {
     };
   }, []);
   return authUser == null ? (
-    <h1>Loading</h1>
+    <h1 className="text-lg text-center">Loading</h1>
   ) : (
     <div className="flex flex-col-reverse items-center justify-between gap-8 lg:flex-row">
       <WishList />
