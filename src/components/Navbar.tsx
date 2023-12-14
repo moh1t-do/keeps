@@ -33,7 +33,7 @@ function Navbar(): React.ReactNode {
 
   const handleSignOut = (): void => {
     signOut(auth)
-      .then(() => { })
+      .then(() => { setIsOpen(false) })
       .catch((error) => { });
   };
 
@@ -71,26 +71,24 @@ function Navbar(): React.ReactNode {
         {isOpen && (
           <div className="top fixed left-0 h-full w-screen bg-black py-4 sm:hidden">
             <div className="mx-auto w-full px-8">
-              <ul className="flex cursor-pointer flex-col gap-10 py-4">
+              <ul className="flex cursor-pointer flex-col gap-5 py-4">
                 {navItems.map((ele: navItem, idx: number) => (
-                  <li className="w-full border-b py-2" key={idx} onClick={():void => setIsOpen(false)}>
+                  <li className="w-full border-b pt-2 pb-1" key={idx} onClick={(): void => setIsOpen(false)}>
                     <Link href={ele.navLink}>
                       {ele.title}
                     </Link>
                   </li>
 
                 ))}
-                {authUser && (
-                  <li>
-                    <button
-                      onClick={handleSignOut}
-                      className="h-8 bg-blue-500 px-4 py-2  text-xs font-bold  uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
-                    >
-                      Logout
-                    </button>
-                  </li>
-                )}
               </ul>
+              {authUser && (
+                <button
+                  onClick={handleSignOut}
+                  className="h-8 mt-4 bg-blue-500 px-4 py-2 w-20 text-xs font-bold  uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+                >
+                  Logout
+                </button>
+              )}
             </div>
           </div>
         )}
