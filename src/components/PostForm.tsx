@@ -11,12 +11,13 @@ function PostForm() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let _id: number = Math.random();
-    console.log('id', _id, 'title', title, 'theme', theme)
-    dispatch((addToList({
-      id: _id,
-      title: title,
-      theme: theme,
-    })))
+    // console.log('id', _id, 'title', title, 'theme', theme)
+    if (title.length)
+      dispatch((addToList({
+        id: _id,
+        title: title,
+        theme: theme,
+      })))
     setTitle('');
     setTheme(1);
   }
@@ -31,6 +32,7 @@ function PostForm() {
           placeholder="What's on your mind?"
           className="mb-6 w-full rounded px-4 py-2
   text-black focus:outline-none sm:text-sm sm:leading-5"
+          value={title}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)}
         ></input>
         <ButtonGroup setTheme={setTheme} />
