@@ -18,4 +18,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Component Tree
 
-<img title="App component tree" alt="Component Tree" src="/public/component-tree.png">
+<img title="App component tree" alt="Component Tree" src="/public/component-tree.jpg">
