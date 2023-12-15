@@ -5,8 +5,10 @@ import { useRouter } from "next/navigation";
 import { UserCredential, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebase/firebase";
 
-const Login = () => {
+function Login(): React.ReactNode {
   const router = useRouter();
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
 
   const isValidEmail = (email: string) => {
@@ -14,11 +16,8 @@ const Login = () => {
     return emailRegex.test(email);
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const email = e.target[0].value;
-    const password = e.target[1].value;
-
     if (!isValidEmail(email)) {
       setError("Email is invalid");
       return;
@@ -33,6 +32,8 @@ const Login = () => {
       .then((userCredential: UserCredential) => {
         // Signed in
         const user = userCredential.user;
+        setEmail("");
+        setPassword("");
         router.push("/dashboard");
         // ...
       })
@@ -52,12 +53,20 @@ const Login = () => {
             className="mb-4 w-full rounded border border-gray-300 px-3 py-2 text-black focus:border-blue-400 focus:text-black focus:outline-none"
             placeholder="Email"
             required
+            value={email}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setEmail(e.target.value)
+            }
           />
           <input
             type="password"
             className="mb-4 w-full rounded border border-gray-300 px-3 py-2 text-black focus:border-blue-400 focus:text-black focus:outline-none"
             placeholder="Password"
             required
+            value={password}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setPassword(e.target.value)
+            }
           />
           <button
             type="submit"
@@ -68,14 +77,6 @@ const Login = () => {
           </button>
           <p className="mb-4 text-[16px] text-red-600">{error && error}</p>
         </form>
-        {/* <button
-          className="w-full rounded bg-black py-2 text-white hover:bg-gray-800"
-          onClick={() => {
-            // signIn("github");
-          }}
-        >
-          Sign In with Github
-        </button> */}
         <div className="mt-4 text-center text-gray-500">- OR -</div>
         <Link
           className="mt-2 block text-center text-blue-500 hover:underline"

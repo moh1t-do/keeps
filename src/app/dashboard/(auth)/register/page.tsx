@@ -13,7 +13,7 @@ import {
 import { useRouter } from "next/navigation";
 
 const Register = () => {
-  const [authuser, setAuthUser] = useState<User | null>(null);
+  // const [authuser, setAuthUser] = useState<User | null>(null);
   const [error, setError] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -40,6 +40,8 @@ const Register = () => {
       .then((userCredential: UserCredential) => {
         // Signed up
         const user = userCredential.user;
+        setEmail("");
+        setPassword("");
         router.push("/dashboard");
         // ...
       })
