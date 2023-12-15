@@ -13,7 +13,7 @@ import {
 import { useRouter } from "next/navigation";
 
 const Register = () => {
-  const [authuser, setAuthUser] = useState<User | null>(null);
+  // const [authuser, setAuthUser] = useState<User | null>(null);
   const [error, setError] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -41,6 +41,8 @@ const Register = () => {
         // Signed up
         const user = userCredential.user;
         router.push("/dashboard");
+        setEmail("");
+        setPassword("");
         // ...
       })
       .catch((error: AuthError) => {

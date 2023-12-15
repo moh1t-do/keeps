@@ -8,8 +8,8 @@ function WishList(): React.ReactNode {
   const wishData = useSelector((state: any) => state.wish.wishData)
 
   useEffect(() => {
-    setwishes(wishData);
-
+    const listen = () => setwishes(wishData);
+    listen();
   }, [wishData])
 
   return (
@@ -17,7 +17,7 @@ function WishList(): React.ReactNode {
       {wishes?.map((ele) => {
         return <WishListCard key={ele.id} id={ele.id} title={ele.title} theme={ele.theme} />
       })}
-      {!wishes && <h1>List Empty</h1>}
+      {(wishes?.length == 0) && <h1 className="text-white">List Empty</h1>}
     </div>
   );
 }
