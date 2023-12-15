@@ -32,9 +32,9 @@ function Login(): React.ReactNode {
       .then((userCredential: UserCredential) => {
         // Signed in
         const user = userCredential.user;
+        router.push("/dashboard");
         setEmail("");
         setPassword("");
-        router.push("/dashboard");
         // ...
       })
       .catch((error) => {

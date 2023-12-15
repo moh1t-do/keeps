@@ -1,8 +1,12 @@
-function ButtonGroup(props: any) {
+interface Props {
+  setTheme: React.Dispatch<React.SetStateAction<number>>;
+}
+
+function ButtonGroup(props: Props): React.ReactNode {
 
   const handleClick = (e: any) => {
     let selectedTheme: number = 1;
-
+    console.log(e);
     if (e.target.value === 'yellow')
       selectedTheme = 1;
     else if (e.target.value === 'orange')

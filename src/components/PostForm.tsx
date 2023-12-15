@@ -3,7 +3,7 @@ import { addToList } from '@/redux/wishSlice';
 import ButtonGroup from "./ButtonGroup";
 import { useState } from "react";
 
-function PostForm() {
+function PostForm():React.ReactNode {
   const [title, setTitle] = useState<string>('');
   const [theme, setTheme] = useState<number>(1);
   const dispatch = useDispatch();

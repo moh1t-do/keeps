@@ -40,9 +40,9 @@ const Register = () => {
       .then((userCredential: UserCredential) => {
         // Signed up
         const user = userCredential.user;
+        router.push("/dashboard");
         setEmail("");
         setPassword("");
-        router.push("/dashboard");
         // ...
       })
       .catch((error: AuthError) => {
