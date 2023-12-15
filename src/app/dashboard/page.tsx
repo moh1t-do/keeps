@@ -23,7 +23,7 @@ function Dashboard(): React.ReactNode {
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [router]);
   return authUser == null ? (
     <h1 className="text-lg text-center">Loading</h1>
   ) : (
