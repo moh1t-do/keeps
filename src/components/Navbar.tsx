@@ -40,7 +40,7 @@ function Navbar(): React.ReactNode {
   return (
     <div className="flex h-20 w-full items-center justify-between border-b border-blue-500 uppercase py-8">
       <Link href="/" className="cursor-pointer outline-none">
-        WISHES
+        KEEPS
       </Link>
       <div>
         <button className="sm:hidden" onClick={(): void => setIsOpen(!isOpen)}>
