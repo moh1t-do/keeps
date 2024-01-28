@@ -9,7 +9,7 @@ import ContextProvider from "@/lib/ContextProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Mondy India Assignment",
+  title: "Keeps",
   description: "Assignment by Mondy India Pvt Ltd",
 };
 
